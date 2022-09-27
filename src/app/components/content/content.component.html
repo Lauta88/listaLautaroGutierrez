@@ -1,0 +1,25 @@
+<h1>Lista de alumnos</h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Sexo</th>
+        <th scope="col">Inicio del curso</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr [ngClass]="alumnos.sexo === 'femenino' ? 'text-danger':'text-primary'" *ngFor ="let alumnos of LISTA">
+        <th scope="row">{{alumnos.id}}</th>
+        <td>{{alumnos.nombre | titlecase}}</td>
+        <td>{{alumnos.apellido | uppercase}}</td>
+        <td [ngClass]="alumnos.edad < 18 ? 'fw-bolder':'fw-normal'">{{alumnos.edad}}</td>
+        <td>{{alumnos.sexo}}</td>
+        <td>{{alumnos.inicioDeCurso | date: "shortDate"}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Se difencia con colores el sexo de los alumnos y con negrita si son menores de edad</h3>
